@@ -6,8 +6,7 @@ import React, { useRef } from "react";
 import { Dimensions, FlatList, ScrollView, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-const height = Dimensions.get('window').height - 320;
-const dummyHeight = Dimensions.get('window').height;
+const height = Dimensions.get('window').height;
 
 const FollowingScreen = () => {
 
@@ -78,12 +77,13 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
    blog: {
-    height: height,
+    height: height - 324,
     marginTop: 10,
     marginBottom: 20,
+    paddingBottom:15
   },
   middle:{
-    height:dummyHeight,
+    height:height,
     backgroundColor:'#f9f7f7ff'
   }
 });

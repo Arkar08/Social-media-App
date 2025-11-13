@@ -23,13 +23,15 @@ const ChatScreen = () => {
       <View style={styles.headerContainer}>
         <Text style={styles.headerText}>Chats</Text>
       </View>
-      <View style={styles.chatContainer}>
-          <FlatList
+      <View style={{height:height,backgroundColor:'#f9f7f7ff',}}>
+          <View style={styles.chatContainer}>
+            <FlatList
             data={chatList}
             keyExtractor={(item) => item.id}
             showsVerticalScrollIndicator={false}
             renderItem={(item) => <ChatListItem item={item.item} goTochatHistory={goTochatHistory}/>}
           />
+          </View>
       </View>
     </SafeAreaView>
   );
@@ -49,7 +51,7 @@ const styles = StyleSheet.create({
     color:'white'
   },
   chatContainer:{
-    backgroundColor:'#f9f7f7ff',
-    height
+    height:height - 190,
+    paddingBottom:15
   }
 });

@@ -13,7 +13,7 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-const height = Dimensions.get('window').height - 230;
+const height = Dimensions.get('window').height;
 
 const HomeScreen = () => {
 
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
     letterSpacing: 2,
   },
   blog: {
-    height: height,
+    height: height - 255,
     marginTop: 10,
     marginBottom: 20,
   },
