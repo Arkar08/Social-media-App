@@ -1,4 +1,5 @@
 import { socialList } from "@/utils/dummy";
+import Entypo from '@expo/vector-icons/Entypo';
 import Ionicons from "@expo/vector-icons/Ionicons";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import * as ImagePicker from "expo-image-picker";
@@ -11,6 +12,7 @@ import {
   KeyboardAvoidingView,
   Platform,
   Pressable,
+  ScrollView,
   StyleSheet,
   Text,
   TextInput,
@@ -24,7 +26,7 @@ const { width } = Dimensions.get("window");
 const CreatePostScreen = () => {
   const router = useRouter();
   const [isKeyboardVisible, setKeyboardVisible] = useState(false);
-  const [imageList, setImageList] = useState("");
+  const [imageList, setImageList] = useState<string[]>([]);
   const [inputText, setInputText] = useState("");
   const [social, setSocial] = useState(socialList);
 
@@ -41,25 +43,25 @@ const CreatePostScreen = () => {
     };
   }, []);
 
-  const BackToHome = () => {
-    router.back();
-  };
+  const BackToHome = () => router.back();
 
   const pickImage = async () => {
-    let result = await ImagePicker.launchImageLibraryAsync({
+    const result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ["images", "videos"],
       allowsMultipleSelection: true,
-      aspect: [4, 3],
       quality: 1,
     });
+
     if (!result.canceled) {
-      setImageList(result.assets[0].uri);
+      const uris = result.assets.map((asset) => asset.uri);
+      setImageList((prev) => [...prev, ...uris]);
     }
   };
 
-  const inputChange = (text: string) => {
-    setInputText(text);
-  };
+  const crossIcon = (list:any) => {
+    const main = imageList.filter((image)=>image !== list)
+    setImageList(main)
+  }
 
   const createPost = () => {
     const data = {
@@ -71,15 +73,11 @@ const CreatePostScreen = () => {
       postLike: 0,
       comments: 0,
     };
-    if (data) {
-      setSocial((prev) => [
-        ...prev,
-        { ...data, id: (prev.length + 1).toString() },
-      ]);
-      setKeyboardVisible(false)
-      setInputText("");
-      setImageList("");
-    }
+
+    setSocial((prev) => [...prev, { ...data, id: (prev.length + 1).toString() }]);
+    setKeyboardVisible(false);
+    setInputText("");
+    setImageList([]);
     router.push("/(tabs)");
   };
 
@@ -106,18 +104,32 @@ const CreatePostScreen = () => {
           <Text style={styles.username}>Arkar</Text>
         </View>
 
-        <View style={styles.inputContainer}>
-          <TextInput
-            placeholder="Something Write Post"
-            multiline={true}
-            autoFocus={true}
-            style={styles.inputBox}
-            onChangeText={inputChange}
-          />
-          {imageList && (
-            <Image source={{ uri: imageList }} style={styles.image} />
-          )}
-        </View>
+        <ScrollView contentContainerStyle={{ paddingBottom: 100 }} showsVerticalScrollIndicator={false}>
+          <View style={styles.inputContainer}>
+            <TextInput
+              placeholder="Write something..."
+              multiline
+              autoFocus
+              value={inputText}
+              onChangeText={setInputText}
+              style={styles.inputBox}
+            />
+
+            {imageList.length > 0 && (
+              <View style={styles.imageListContainer}>
+                {imageList.map((uri, index) => (
+                  <View key={index} style={{position:'relative'}}>
+                    <Image source={{ uri }} style={imageList.length === 1 ?styles.imageListOne :styles.image}  resizeMode="cover"/>
+                    <Pressable onPress={()=>crossIcon(uri)} style={styles.crossIcon}>
+                      <Entypo name="circle-with-cross" size={28} color="red" />
+                    </Pressable>
+                  </View>
+                ))}
+              </View>
+            )}
+          </View>
+        </ScrollView>
+
         <Pressable
           style={isKeyboardVisible ? styles.photoList : styles.photoContainer}
           onPress={pickImage}
@@ -186,6 +198,25 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     padding: 10,
     textAlignVertical: "top",
+    color:'black'
+  },
+  imageListContainer: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "space-between",
+    marginTop: 10,
+  },
+  imageListOne:{
+    width: (width - 40),
+    height: 180,
+    borderRadius: 10,
+    marginBottom: 10,
+  },
+  image: {
+    width: (width - 40) / 2,
+    height: 180,
+    borderRadius: 10,
+    marginBottom: 10,
   },
   photoContainer: {
     position: "absolute",
@@ -194,7 +225,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     gap: 10,
-    zIndex:1
+    zIndex: 1,
   },
   photoList: {
     position: "absolute",
@@ -203,15 +234,15 @@ const styles = StyleSheet.create({
     gap: 10,
     bottom: 330,
     left: 10,
-    zIndex:1
+    zIndex: 1,
   },
   photoText: {
     fontSize: 14,
     fontWeight: "500",
   },
-  image: {
-    width: width - 20,
-    height: 400,
-    marginTop: 10,
-  },
+  crossIcon:{
+    position:'absolute',
+    top:5,
+    right:5
+  }
 });

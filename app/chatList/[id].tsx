@@ -48,10 +48,10 @@ const ChatDetailScreen = () => {
     };
   }, []);
 
-  useEffect(() => {
-    if (!permission) return;
-    if (!permission.granted) requestPermission();
-  }, [permission, requestPermission]);
+  // useEffect(() => {
+  //   if (!permission) return;
+  //   if (!permission.granted) requestPermission();
+  // }, [permission, requestPermission]);
 
   const pickImage = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
@@ -66,6 +66,7 @@ const ChatDetailScreen = () => {
   };
 
   const openCamera = async () => {
+     if (!permission) return;
     if (!permission?.granted) {
       await requestPermission();
       return;
@@ -203,6 +204,7 @@ const styles = StyleSheet.create({
     width: 180,
     borderRadius: 30,
     paddingHorizontal: 15,
+    color:'black'
   },
   cameraControls: {
     position: "absolute",

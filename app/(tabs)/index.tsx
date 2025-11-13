@@ -9,7 +9,7 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  View,
+  View
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -24,7 +24,7 @@ const HomeScreen = () => {
   }
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView style={{ flex: 1,backgroundColor:'#f9f7f7ff' }}>
       <View style={styles.mainContainer}>
         <Text style={styles.headerText}>TuTu Social</Text>
         <Ionicons name="notifications-outline" size={24} color="black" />

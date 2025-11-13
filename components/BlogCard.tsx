@@ -2,12 +2,11 @@ import { Ionicons } from "@expo/vector-icons";
 import React, { useState } from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-const BlogCard = ({ item }: any) => {
-
-  const [following,setFollowing] = useState(false);
+const BlogCard = ({ item, followRef }: any) => {
+  const [following, setFollowing] = useState(false);
   const clickFollow = () => {
-    setFollowing(!following)
-  }
+    setFollowing(!following);
+  };
 
   return (
     <View style={styles.card}>
@@ -19,11 +18,13 @@ const BlogCard = ({ item }: any) => {
             <Text style={styles.time}>{item.uploadTime}</Text>
           </View>
         </View>
-        <View>
-          <TouchableOpacity style={styles.followButton} onPress={clickFollow}>
-            <Text>{following ? 'Following': 'Follow'}</Text>
-          </TouchableOpacity>
-        </View>
+        {!followRef && (
+          <View>
+            <TouchableOpacity style={styles.followButton} onPress={clickFollow}>
+              <Text>{following ? "Following" : "Follow"}</Text>
+            </TouchableOpacity>
+          </View>
+        )}
       </View>
 
       <Text style={styles.caption}>{item.uploadText}</Text>
@@ -76,10 +77,10 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: "row",
     alignItems: "center",
-    justifyContent:'space-between',
+    justifyContent: "space-between",
     padding: 12,
   },
-  profileCOntainer:{
+  profileCOntainer: {
     flexDirection: "row",
     alignItems: "center",
   },
@@ -136,10 +137,10 @@ const styles = StyleSheet.create({
     fontSize: 13,
     color: "#475569",
   },
-  followButton:{
-    borderWidth:0.5,
-    borderColor:'gray',
-    padding:10,
-    borderRadius:10
-  }
+  followButton: {
+    borderWidth: 0.5,
+    borderColor: "gray",
+    padding: 10,
+    borderRadius: 10,
+  },
 });

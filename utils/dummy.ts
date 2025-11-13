@@ -58,5 +58,68 @@ export const chatList = [
         profileName:'Chit Chit',
         message:"နေကောင်းလား",
         timeLine:'12:30 PM'
+    },
+     {
+        id:'4',
+        profileImage:require('@/assets/images/boy.jpg'),
+        profileName:'Arkar',
+        message:"hello world",
+        timeLine:'12:30 PM'
+    },
+    {
+        id:'5',
+        profileImage:require('@/assets/images/boy.jpg'),
+        profileName:'Kyaw Kyaw',
+        message:"စားပြီးပြီလား",
+        timeLine:'12:30 PM'
+    },
+    {
+        id:'6',
+        profileImage:require('@/assets/images/boy.jpg'),
+        profileName:'Chit Chit',
+        message:"နေကောင်းလား",
+        timeLine:'12:30 PM'
+    },
+     {
+        id:'7',
+        profileImage:require('@/assets/images/boy.jpg'),
+        profileName:'Arkar',
+        message:"hello world",
+        timeLine:'12:30 PM'
+    },
+    {
+        id:'8',
+        profileImage:require('@/assets/images/boy.jpg'),
+        profileName:'Kyaw Kyaw',
+        message:"စားပြီးပြီလား",
+        timeLine:'12:30 PM'
+    },
+    {
+        id:'9',
+        profileImage:require('@/assets/images/boy.jpg'),
+        profileName:'Chit Chit',
+        message:"နေကောင်းလား",
+        timeLine:'12:30 PM'
+    },
+     {
+        id:'10',
+        profileImage:require('@/assets/images/boy.jpg'),
+        profileName:'Arkar',
+        message:"hello world",
+        timeLine:'12:30 PM'
+    },
+    {
+        id:'11',
+        profileImage:require('@/assets/images/boy.jpg'),
+        profileName:'Kyaw Kyaw',
+        message:"စားပြီးပြီလား",
+        timeLine:'12:30 PM'
+    },
+    {
+        id:'12',
+        profileImage:require('@/assets/images/boy.jpg'),
+        profileName:'Chit Chit',
+        message:"နေကောင်းလား",
+        timeLine:'12:30 PM'
     }
 ]
