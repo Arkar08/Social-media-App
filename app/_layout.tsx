@@ -15,7 +15,7 @@ function NavLayout() {
         <Stack.Screen name="createPost"/>
         <Stack.Screen name="chatList"/>
       </Stack>
-      <StatusBar barStyle={'dark-content'} translucent={false}/>
+      <StatusBar barStyle={'dark-content'} translucent={false} backgroundColor={'blue'}/>
     </>
   );
 }

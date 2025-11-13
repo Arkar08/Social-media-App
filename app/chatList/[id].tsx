@@ -133,7 +133,7 @@ const ChatDetailScreen = () => {
             <FontAwesome name="photo" size={28} color="black" />
           </TouchableOpacity>
           <FontAwesome name="microphone" size={24} color="black" />
-          <TextInput placeholder="Aa" style={styles.inputBox} />
+          <TextInput placeholder="Aa" style={styles.inputBox} placeholderTextColor={'black'}/>
           <Pressable>
             <Ionicons name="send" size={24} color="blue" />
           </Pressable>

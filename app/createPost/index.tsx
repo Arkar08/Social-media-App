@@ -113,6 +113,7 @@ const CreatePostScreen = () => {
               value={inputText}
               onChangeText={setInputText}
               style={styles.inputBox}
+              placeholderTextColor={'black'}
             />
 
             {imageList.length > 0 && (
