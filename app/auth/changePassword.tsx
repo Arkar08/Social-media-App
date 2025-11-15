@@ -45,7 +45,7 @@ const ChangePasswordScreen = () => {
       newPassword: "",
       confirmPassword: "",
     });
-    router.push("/(tabs)");
+    router.replace("/auth");
   };
 
   return (

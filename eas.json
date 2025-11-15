@@ -4,9 +4,28 @@
     "appVersionSource": "remote"
   },
   "build": {
+    "uat": {
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk"
+      },
+      "ios": {
+        "simulator": true
+      },
+      "env": {
+        "ENVIRONMENT": "uat",
+        "API_URL": "https://uat.api.com"
+      }
+    },
     "development": {
       "developmentClient": true,
       "distribution": "internal"
+    },
+    "ios-simulator": {
+       "extends": "development",
+      "ios": {
+        "simulator": true
+      }
     },
     "preview": {
       "distribution": "internal"

@@ -23,7 +23,7 @@ const HomeScreen = () => {
 
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#4d4c4c7c" }}>
-      <View style={{backgroundColor:"#f9f7f7f8"}}>
+      <View style={{backgroundColor:"#f9f7f7f8",height:height}}>
         <View style={styles.mainContainer}>
           <Text style={styles.headerText}>TuTu Social</Text>
           <Ionicons name="notifications-outline" size={24} color="black" />
