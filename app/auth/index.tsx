@@ -1,7 +1,7 @@
 import InputContainer from "@/components/InputContainer";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "expo-router";
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import {
   Dimensions,
@@ -18,7 +18,7 @@ const loginProfile = require("@/assets/images/mobile-office.png");
 const width = Dimensions.get("window").width;
 
 const loginSchema = z.object({
-  userName: z.string().min(1, { message: "Username is required" }),
+  email: z.string().min(1, { message: "Email is required" }),
   password: z
     .string()
     .min(6, { message: "Password must be at least 6 characters" }),
@@ -28,11 +28,12 @@ const LoginScreen = () => {
   const form = useForm<z.infer<typeof loginSchema>>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
-      userName: "",
+      email: "",
       password: "",
     },
   });
   const router = useRouter();
+  const [changeEyeIcon, setChangeEyeIcon] = useState(true);
 
   const {
     control,
@@ -44,7 +45,7 @@ const LoginScreen = () => {
   const onSubmit = (data: z.infer<typeof loginSchema>) => {
     console.log(data);
     reset({
-      userName: "",
+      email: "",
       password: "",
     });
     router.push("/(tabs)");
@@ -73,7 +74,7 @@ const LoginScreen = () => {
                 errors={errors}
                 label="Username or Email or Phone Number"
                 placeholder={"Enter Username or Email or Phone Number"}
-                name="userName"
+                name="email"
               />
             </View>
             <View style={{ marginBottom: 15 }}>
@@ -83,6 +84,8 @@ const LoginScreen = () => {
                 label="Password"
                 placeholder={"Enter Password"}
                 name="password"
+                changeEyeIcon={changeEyeIcon}
+                setChangeEyeIcon={setChangeEyeIcon}
               />
             </View>
             <Pressable onPress={forgetPasswordClick}>

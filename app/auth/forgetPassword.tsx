@@ -37,7 +37,7 @@ const ForgetPasswordScreen = () => {
   };
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{ flex: 1, marginTop: 50, backgroundColor: "white" }}>
       <Text style={styles.headerText}>Reset Password</Text>
       <View style={{ padding: 20, marginTop: 20 }}>
         <View>
@@ -46,7 +46,7 @@ const ForgetPasswordScreen = () => {
             errors={errors}
             name="email"
             label="Email"
-            placeholder="Enter your email"
+            placeholder="Enter your Email"
           />
         </View>
         <Pressable

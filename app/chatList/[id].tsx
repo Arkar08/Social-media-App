@@ -107,9 +107,9 @@ const ChatDetailScreen = () => {
   }
 
   return (
-    <SafeAreaView style={{ flex: 1, position: "relative" ,backgroundColor: "#4d4c4c7c"}}>
+    <SafeAreaView style={{ flex: 1, position: "relative"}}>
       <KeyboardAvoidingView
-        style={{ flex: 1 ,backgroundColor:"#f9f7f796"}}
+        style={{ flex: 1}}
         behavior={Platform.OS === "ios" ? "padding" : undefined}
       >
         <View style={styles.headerContainer}>

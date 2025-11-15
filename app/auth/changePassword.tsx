@@ -1,7 +1,7 @@
 import InputContainer from "@/components/InputContainer";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "expo-router";
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -31,6 +31,8 @@ const ChangePasswordScreen = () => {
   });
 
   const router = useRouter();
+  const [eyeIcon, setEyeIcon] = useState(true);
+  const [confirmEyeIcon, setConfirmEyeIcon] = useState(true);
 
   const {
     control,
@@ -49,7 +51,7 @@ const ChangePasswordScreen = () => {
   };
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{ flex: 1, marginTop: 50, backgroundColor: "white" }}>
       <Text style={styles.headerText}>Change Password</Text>
       <View style={{ padding: 20, marginTop: 20 }}>
         <View style={{ marginBottom: 15 }}>
@@ -58,7 +60,9 @@ const ChangePasswordScreen = () => {
             errors={errors}
             name="newPassword"
             label="New Password"
-            placeholder="Enter your new password"
+            placeholder="Enter your New Password"
+            changeEyeIcon={eyeIcon}
+            setChangeEyeIcon={setEyeIcon}
           />
         </View>
         <View style={{ marginBottom: 15 }}>
@@ -67,7 +71,9 @@ const ChangePasswordScreen = () => {
             errors={errors}
             name="confirmPassword"
             label="Confirm Password"
-            placeholder="Confirm your new password"
+            placeholder="Confirm your New Password"
+            changeEyeIcon={confirmEyeIcon}
+            setChangeEyeIcon={setConfirmEyeIcon}
           />
         </View>
         <Pressable

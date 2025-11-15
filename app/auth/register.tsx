@@ -1,7 +1,7 @@
 import InputContainer from "@/components/InputContainer";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "expo-router";
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -30,6 +30,7 @@ const RegisterScreen = () => {
   });
 
   const router = useRouter();
+  const [registerEyeIcon,setRegisterEyeIcon] = useState(true);
 
   const {
     control,
@@ -80,7 +81,7 @@ const RegisterScreen = () => {
             control={control}
             errors={errors}
             label="Email (optional)"
-            placeholder={"Enter email"}
+            placeholder={"Enter Email"}
             name="email"
           />
         </View>
@@ -91,6 +92,8 @@ const RegisterScreen = () => {
             label="Password"
             placeholder={"Enter Password"}
             name="password"
+            changeEyeIcon={registerEyeIcon}
+            setChangeEyeIcon={setRegisterEyeIcon}
           />
         </View>
         <Pressable

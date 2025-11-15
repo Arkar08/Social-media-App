@@ -1,9 +1,13 @@
 import { Stack } from "expo-router";
-import { StatusBar } from "react-native";
+import { StatusBar } from 'expo-status-bar';
 import { KeyboardProvider } from 'react-native-keyboard-controller';
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
 function NavLayout() {
+
+
+  const isLoggedIn = false;
+
   return (
     <>
       <Stack
@@ -11,12 +15,16 @@ function NavLayout() {
           headerShown: false,
         }}
       >
-        <Stack.Screen name="auth" />
-        <Stack.Screen name="(tabs)" />
-        <Stack.Screen name="createPost"/>
-        <Stack.Screen name="chatList"/>
+        <Stack.Protected guard={!isLoggedIn}>
+          <Stack.Screen name="auth" />
+        </Stack.Protected>
+        <Stack.Protected guard={isLoggedIn}>
+          <Stack.Screen name="(tabs)" />
+          <Stack.Screen name="createPost"/>
+          <Stack.Screen name="chatList"/>
+        </Stack.Protected>
       </Stack>
-      <StatusBar barStyle={'light-content'} translucent={false} backgroundColor={"#4d4c4c7c"}/>
+      <StatusBar style='auto'/>
     </>
   );
 }

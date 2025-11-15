@@ -140,7 +140,7 @@ const styles = StyleSheet.create({
   followButton: {
     padding: 10,
     borderRadius: 10,
-    boxShadow: '0px 4px 6px #00000029',
-    backgroundColor: '#d3d3d3'
+    boxShadow: '0px 4px 6px #29292929',
+    backgroundColor: '#e7e6e6ff'
   },
 });

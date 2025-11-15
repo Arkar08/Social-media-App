@@ -19,7 +19,7 @@ const ChatScreen = () => {
   }
 
   return (
-    <SafeAreaView style={{ flex: 1,backgroundColor:'blue' }}>
+    <SafeAreaView style={{ flex: 1}}>
       <View style={styles.headerContainer}>
         <Text style={styles.headerText}>Chats</Text>
       </View>
@@ -43,12 +43,11 @@ const styles = StyleSheet.create({
   headerContainer: {
     padding: 10,
     zIndex: 1,
-    backgroundColor:'blue'
   },
   headerText: {
     fontSize: 24,
     fontWeight: "500",
-    color:'white'
+    color:'blue'
   },
   chatContainer:{
     height:height - 190,

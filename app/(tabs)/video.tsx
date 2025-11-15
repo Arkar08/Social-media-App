@@ -21,7 +21,7 @@ const VideoScreen = () => {
   });
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: 'black' }}>
+    <SafeAreaView style={{ flex: 1}}>
       <View style={styles.headerContainer}>
         <Text style={styles.headerText}>Video</Text>
       </View>
@@ -52,12 +52,11 @@ export default VideoScreen;
 const styles = StyleSheet.create({
   headerContainer: {
     padding: 10,
-    backgroundColor: 'black',
     zIndex: 1,
   },
   headerText: {
     fontSize: 24,
     fontWeight: '500',
-    color: '#f9f7f7ff',
+    color: 'blue',
   },
 });

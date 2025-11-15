@@ -13,7 +13,7 @@ const FollowingScreen = () => {
   const followStatus = useRef(null)
 
   return (
-    <SafeAreaView style={{ flex: 1,backgroundColor:'blue' }}>
+    <SafeAreaView style={{ flex: 1}}>
       <View style={styles.headerContainer}>
         <Text style={styles.headerText}>Followings</Text>
       </View>
@@ -56,20 +56,19 @@ const styles = StyleSheet.create({
   headerContainer: {
     padding: 10,
     zIndex: 1,
-    backgroundColor:'blue'
   },
   headerText: {
     fontSize: 24,
     fontWeight: "500",
-    color:'white'
+    color:'blue'
   },
   plusContainer: {
     width: 80,
     height: 80,
-    borderWidth: 1,
     borderRadius: 50,
     justifyContent: "center",
     alignItems: "center",
+    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
   },
   profileText: {
     marginTop:10,
