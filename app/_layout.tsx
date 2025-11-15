@@ -11,11 +11,12 @@ function NavLayout() {
           headerShown: false,
         }}
       >
+        <Stack.Screen name="auth" />
         <Stack.Screen name="(tabs)" />
         <Stack.Screen name="createPost"/>
         <Stack.Screen name="chatList"/>
       </Stack>
-      <StatusBar barStyle={'dark-content'} translucent={false} backgroundColor={'blue'}/>
+      <StatusBar barStyle={'light-content'} translucent={false}/>
     </>
   );
 }

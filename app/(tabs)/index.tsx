@@ -9,36 +9,36 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  View
+  View,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-const height = Dimensions.get('window').height;
+const height = Dimensions.get("window").height;
 
 const HomeScreen = () => {
-
-
-  const router = useRouter()
+  const router = useRouter();
   const addPost = () => {
-    router.push('/createPost')
-  }
+    router.push("/createPost");
+  };
 
   return (
-    <SafeAreaView style={{ flex: 1,backgroundColor:'#f9f7f7ff' }}>
-      <View style={styles.mainContainer}>
-        <Text style={styles.headerText}>TuTu Social</Text>
-        <Ionicons name="notifications-outline" size={24} color="black" />
-      </View>
-      <TouchableOpacity style={styles.buttonContainer} onPress={addPost}>
-        <Text style={styles.buttonText}>Add Post Something...</Text>
-      </TouchableOpacity>
-      <View style={styles.blog}>
-        <FlatList
-          data={socialList}
-          keyExtractor={(item) => item.id}
-          showsVerticalScrollIndicator={false}
-          renderItem={(item) => <BlogCard item={item.item} />}
-        />
+    <SafeAreaView style={{ flex: 1, backgroundColor: "#4d4c4c7c" }}>
+      <View style={{backgroundColor:"#f9f7f796"}}>
+        <View style={styles.mainContainer}>
+          <Text style={styles.headerText}>TuTu Social</Text>
+          <Ionicons name="notifications-outline" size={24} color="black" />
+        </View>
+        <TouchableOpacity style={styles.buttonContainer} onPress={addPost}>
+          <Text style={styles.buttonText}>Add Post Something...</Text>
+        </TouchableOpacity>
+        <View style={styles.blog}>
+          <FlatList
+            data={socialList}
+            keyExtractor={(item) => item.id}
+            showsVerticalScrollIndicator={false}
+            renderItem={(item) => <BlogCard item={item.item} />}
+          />
+        </View>
       </View>
     </SafeAreaView>
   );
@@ -56,12 +56,12 @@ const styles = StyleSheet.create({
   },
   headerText: {
     color: "blue",
-    fontSize: 22,
+    fontSize: 24,
     fontWeight: "bold",
   },
   buttonContainer: {
-    backgroundColor: "#D9D9D9",
-    width: "96%",
+    backgroundColor: "#c4c1c1ff",
+    width: "94%",
     height: 50,
     paddingHorizontal: 20,
     marginHorizontal: "auto",
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
     letterSpacing: 2,
   },
   blog: {
-    height: height - 255,
+    height: height - 265,
     marginTop: 10,
     marginBottom: 20,
   },

@@ -23,7 +23,7 @@ const ChatScreen = () => {
       <View style={styles.headerContainer}>
         <Text style={styles.headerText}>Chats</Text>
       </View>
-      <View style={{height:height,backgroundColor:'#f9f7f7ff',}}>
+      <View style={{height:height,backgroundColor:'#f9f7f7e0',}}>
           <View style={styles.chatContainer}>
             <FlatList
             data={chatList}
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     backgroundColor:'blue'
   },
   headerText: {
-    fontSize: 28,
+    fontSize: 24,
     fontWeight: "500",
     color:'white'
   },

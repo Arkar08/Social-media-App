@@ -138,9 +138,9 @@ const styles = StyleSheet.create({
     color: "#475569",
   },
   followButton: {
-    borderWidth: 0.5,
-    borderColor: "gray",
     padding: 10,
     borderRadius: 10,
+    boxShadow: '0px 4px 6px #00000029',
+    backgroundColor: '#d3d3d3'
   },
 });

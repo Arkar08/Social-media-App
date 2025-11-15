@@ -22,7 +22,7 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const profileImage = require("@/assets/images/boy.jpg");
-const width = Dimensions.get("window").width - 10;
+const width = Dimensions.get("window").width;
 
 const ChatDetailScreen = () => {
   const params = useLocalSearchParams();
@@ -107,9 +107,9 @@ const ChatDetailScreen = () => {
   }
 
   return (
-    <SafeAreaView style={{ flex: 1, position: "relative" }}>
+    <SafeAreaView style={{ flex: 1, position: "relative" ,backgroundColor: "#4d4c4c7c"}}>
       <KeyboardAvoidingView
-        style={{ flex: 1 }}
+        style={{ flex: 1 ,backgroundColor:"#f9f7f796"}}
         behavior={Platform.OS === "ios" ? "padding" : undefined}
       >
         <View style={styles.headerContainer}>
@@ -149,7 +149,7 @@ const styles = StyleSheet.create({
   headerContainer: {
     height: 60,
     borderBottomWidth: 1,
-    borderBottomColor: "#D9D9D9",
+    borderBottomColor: "#f8f4f4ff",
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
@@ -173,8 +173,7 @@ const styles = StyleSheet.create({
   },
   bottomContainer: {
     position: "absolute",
-    bottom: 8,
-    left: 5,
+    bottom: 0,
     height: 60,
     width: width,
     padding: 10,
@@ -187,8 +186,7 @@ const styles = StyleSheet.create({
   },
   bottomList: {
     position: "absolute",
-    bottom: 310,
-    left: 5,
+    bottom: 330,
     height: 60,
     width: width,
     padding: 10,

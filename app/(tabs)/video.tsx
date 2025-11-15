@@ -56,8 +56,8 @@ const styles = StyleSheet.create({
     zIndex: 1,
   },
   headerText: {
-    fontSize: 28,
+    fontSize: 24,
     fontWeight: '500',
-    color: 'whitesmoke',
+    color: '#f9f7f7ff',
   },
 });

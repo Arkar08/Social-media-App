@@ -28,7 +28,7 @@ const FollowingScreen = () => {
             <View style={styles.plusContainer}>
               <AntDesign name="plus" size={24} color="black" />
             </View>
-            <Text style={styles.profileText}>Add Following</Text>
+            <Text style={styles.profileText}>Create</Text>
           </View>
           <ProfileCard />
           <ProfileCard />
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     backgroundColor:'blue'
   },
   headerText: {
-    fontSize: 28,
+    fontSize: 24,
     fontWeight: "500",
     color:'white'
   },
@@ -84,6 +84,6 @@ const styles = StyleSheet.create({
   },
   middle:{
     height:height,
-    backgroundColor:'#f9f7f7ff'
+    backgroundColor:'#f9f7f7d8'
   }
 });
