@@ -84,6 +84,6 @@ const styles = StyleSheet.create({
   },
   middle:{
     height:height,
-    backgroundColor:'#f9f7f7d8'
+    backgroundColor:'#f9f7f7f8'
   }
 });

@@ -47,6 +47,7 @@ const LoginScreen = () => {
       userName: "",
       password: "",
     });
+    router.push("/(tabs)");
   };
 
   const registerClick = () => {
