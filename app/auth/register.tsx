@@ -39,8 +39,8 @@ const RegisterScreen = () => {
     reset,
   } = form;
 
-  const onSubmit = (data: z.infer<typeof registerSchema>) => {
-    console.log(data);
+  const onSubmit = (values: z.infer<typeof registerSchema>) => {
+    console.log(values);
     reset({
       userName: "",
       password: "",
@@ -71,18 +71,18 @@ const RegisterScreen = () => {
           <InputContainer
             control={control}
             errors={errors}
-            label="Phone Number"
-            placeholder={"Enter Phone Number"}
-            name="phoneNumber"
+            label="Email"
+            placeholder={"Enter Email"}
+            name="email"
           />
         </View>
         <View style={{ marginBottom: 15 }}>
           <InputContainer
             control={control}
             errors={errors}
-            label="Email (optional)"
-            placeholder={"Enter Email"}
-            name="email"
+            label="Phone Number (optional)"
+            placeholder={"+959xxxxxxxxx"}
+            name="phoneNumber"
           />
         </View>
         <View style={{ marginBottom: 15 }}>

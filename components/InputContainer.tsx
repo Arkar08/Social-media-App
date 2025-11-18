@@ -25,7 +25,9 @@ const InputContainer = ({ control, errors, placeholder, name, label,changeEyeIco
                   backgroundColor: "#fbf7f7ee",
                   padding: 15,
                   borderRadius: 5,
+                  color: 'black'
                 }}
+                placeholderTextColor={'black'}
               />
               {
                 (name === "password" || name === 'newPassword' || name === 'confirmPassword') && (
