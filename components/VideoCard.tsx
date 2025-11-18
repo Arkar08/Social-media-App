@@ -1,11 +1,12 @@
 // VideoCard.tsx
+import { VideoCardType } from '@/utils/constant';
 import { VideoView, useVideoPlayer } from 'expo-video';
 import React from 'react';
 import { Dimensions, StyleSheet, View } from 'react-native';
 
 const { width, height } = Dimensions.get('window');
 
-const VideoCard = ({ uri, isActive }: { uri: string; isActive: boolean }) => {
+const VideoCard = ({ uri, isActive }:VideoCardType) => {
 
   const player = useVideoPlayer(uri, (player) => {
     player.loop = true;

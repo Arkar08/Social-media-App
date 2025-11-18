@@ -26,8 +26,10 @@ const { width } = Dimensions.get("window");
 const CreatePostScreen = () => {
   const router = useRouter();
   const [isKeyboardVisible, setKeyboardVisible] = useState(false);
-  const [imageList, setImageList] = useState<string[]>([]);
-  const [inputText, setInputText] = useState("");
+  const [postList,setPostList] = useState<any>({
+    imageList:[],
+    inputText:""
+  })
   const [social, setSocial] = useState(socialList);
 
   useEffect(() => {
@@ -54,13 +56,13 @@ const CreatePostScreen = () => {
 
     if (!result.canceled) {
       const uris = result.assets.map((asset) => asset.uri);
-      setImageList((prev) => [...prev, ...uris]);
+      setPostList((prev:any) => ({ ...prev, imageList: [...prev.imageList, ...uris] }));
     }
   };
 
   const crossIcon = (list:any) => {
-    const main = imageList.filter((image)=>image !== list)
-    setImageList(main)
+    const main = postList.imageList.filter((image:any)=>image !== list)
+    setPostList((prev:any) => ({ ...prev, imageList: main }));
   }
 
   const createPost = () => {
@@ -68,16 +70,15 @@ const CreatePostScreen = () => {
       profileImage: require("@/assets/images/boy.jpg"),
       profileName: "Arkar",
       uploadTime: "2 hour ago",
-      uploadText: inputText,
-      postImage: imageList,
+      uploadText: postList.inputText,
+      postImage: postList.imageList,
       postLike: 0,
       comments: 0,
     };
 
     setSocial((prev) => [...prev, { ...data, id: (prev.length + 1).toString() }]);
     setKeyboardVisible(false);
-    setInputText("");
-    setImageList([]);
+    setPostList({ imageList: [], inputText: "" });
     router.push("/(tabs)");
   };
 
@@ -110,17 +111,17 @@ const CreatePostScreen = () => {
               placeholder="Write something..."
               multiline
               autoFocus
-              value={inputText}
-              onChangeText={setInputText}
+              value={postList.inputText}
+              onChangeText={(text) => setPostList((prev:any) => ({ ...prev, inputText: text }))}
               style={styles.inputBox}
               placeholderTextColor={'black'}
             />
 
-            {imageList.length > 0 && (
+            {postList.imageList.length > 0 && (
               <View style={styles.imageListContainer}>
-                {imageList.map((uri, index) => (
+                {postList.imageList.map(({uri, index}:any) => (
                   <View key={index} style={{position:'relative'}}>
-                    <Image source={{ uri }} style={imageList.length === 1 ?styles.imageListOne :styles.image}  resizeMode="cover"/>
+                    <Image source={{ uri }} style={postList.imageList.length === 1 ?styles.imageListOne :styles.image}  resizeMode="cover"/>
                     <Pressable onPress={()=>crossIcon(uri)} style={styles.crossIcon}>
                       <Entypo name="circle-with-cross" size={28} color="red" />
                     </Pressable>

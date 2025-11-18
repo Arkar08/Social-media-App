@@ -1,9 +1,10 @@
+import { inputContainerType } from "@/utils/constant";
 import { Ionicons } from "@expo/vector-icons";
 import React from "react";
 import { Controller } from "react-hook-form";
 import { Pressable, Text, TextInput, View } from "react-native";
 
-const InputContainer = ({ control, errors, placeholder, name, label,changeEyeIcon,setChangeEyeIcon }: any) => {
+const InputContainer = ({ control, errors, placeholder, name, label,changeEyeIcon,setChangeEyeIcon }: inputContainerType) => {
   return (
     <View>
       <Text style={{ marginBottom: 5, fontSize: 16, fontWeight: "500" }}>

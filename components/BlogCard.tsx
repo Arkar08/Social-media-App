@@ -1,8 +1,9 @@
+import { BlogListType } from "@/utils/constant";
 import { Ionicons } from "@expo/vector-icons";
 import React, { useState } from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-const BlogCard = ({ item, followRef }: any) => {
+const BlogCard = ({ item, followRef }: BlogListType) => {
   const [following, setFollowing] = useState(false);
   const clickFollow = () => {
     setFollowing(!following);

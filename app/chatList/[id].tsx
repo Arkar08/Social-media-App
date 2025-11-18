@@ -48,11 +48,6 @@ const ChatDetailScreen = () => {
     };
   }, []);
 
-  // useEffect(() => {
-  //   if (!permission) return;
-  //   if (!permission.granted) requestPermission();
-  // }, [permission, requestPermission]);
-
   const pickImage = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ["images", "videos"],

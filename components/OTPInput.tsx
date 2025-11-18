@@ -1,10 +1,8 @@
+import { OTPInputProps } from "@/utils/constant";
 import React, { useRef, useState } from "react";
 import { StyleSheet, TextInput, View } from "react-native";
 
-type OTPInputProps = {
-  length?: number;
-  onCodeFilled?: (code: string) => void;
-};
+
 
 const OTPInput: React.FC<OTPInputProps> = ({ length = 6, onCodeFilled }) => {
   const [code, setCode] = useState<string[]>(new Array(length).fill(""));

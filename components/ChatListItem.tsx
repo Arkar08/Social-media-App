@@ -1,9 +1,10 @@
+import { ChatListItemType } from "@/utils/constant";
 import React from "react";
 import { Dimensions, Image, Pressable, StyleSheet, Text, View } from "react-native";
 
 const width = Dimensions.get("window").width - 20;
 
-const ChatListItem = ({item,goTochatHistory}:any) => {
+const ChatListItem = ({item,goTochatHistory}:ChatListItemType) => {
   return (
     <Pressable style={styles.chatListContainer} onPress={()=>goTochatHistory(item.id)}>
       <Image source={item.profileImage} style={styles.avatar} />
